@@ -1,2 +1,2 @@
 # Exoplanet
-LSTM CNN Exoplanet dataset analysis
+LSTM CNN SGAN Exoplanet dataset analysis
