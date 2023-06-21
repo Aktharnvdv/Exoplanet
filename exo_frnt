@@ -1,0 +1,82 @@
+import streamlit as st
+import base64
+
+st.set_page_config(page_title ="Exoplanet Hunters",
+                    initial_sidebar_state="collapsed",
+                    page_icon="🔮")
+tabs = ["Home","Transit method","Predict using lstm","Predict using CNN","About"]
+page = st.sidebar.radio("Navigation",tabs)
+
+if page =="Home":
+    main_bg = "preblk.jpg"
+    main_bg_ext = "jpg"
+
+    st.markdown(
+    f"""
+    <style>
+    .reportview-container {{
+        background: url(data:image/{main_bg_ext};base64,{base64.b64encode(open(main_bg, "rb").read()).decode()})
+    }}
+
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
+    logo = 'exologo.jpeg'
+    st.image(logo)
+    html_temp = """ 
+        <div style ="background-color:black;padding:13px"> 
+        <h1 style ="color:navy;text-align:center;">Exoplanet Detection app</h1> 
+        </div> 
+        """
+    st.markdown(html_temp, unsafe_allow_html=True)
+    st.markdown("""**"Welcome to exoplanet hunting ! Let's hunt for some planets together with Artificial Intelligence ;-)"**""")
+if page =="Transit method":
+    st.header("Detection techniques")
+    st.subheader("Transit Method")
+    transit = 'transit1.jpeg'
+    st.image(transit)
+    st.write("Transit photometry is currently the most effective and sensitive method for detecting extrasolar planets. It is a particularly advantageous method for space-based observatories that can stare continuously at stars for weeks or months.")
+if page =="Predict using lstm":
+    data = st.sidebar.file_uploader(label="Enter the data to be tested", type=['csv'])
+#with st.sidebar:
+ #   if st.button(label='Clear cache'):
+  #      caching.clear_cache()
+            
+if page =="Predict using CNN":
+    
+        data1 = st.sidebar.file_uploader(label="Enter the data to be tested", type=['csv'])
+if page == "About":
+    #st.image("exologo.jpeg")
+    
+    html_temp = """ 
+        <div style ="background-color:navy;padding:13px"> 
+        <h1 style ="color:white;text-align:center;">About</h1> 
+        </div> 
+        """
+    st.markdown(html_temp, unsafe_allow_html=True)
+    main_bg = "about_bg.jpeg"
+    main_bg_ext = "jpeg"
+
+    st.markdown(
+    f"""
+    <style>
+    .reportview-container {{
+        background: url(data:image/{main_bg_ext};base64,{base64.b64encode(open(main_bg, "rb").read()).decode()})
+    }}
+
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
+    
+    #st.markdown("Official documentation of **[Facebook Prophet](https://facebook.github.io/prophet/)**")
+    st.markdown("Official documentation of **[Streamlit](https://docs.streamlit.io/en/stable/getting_started.html)**")
+    st.write("")
+    st.write("Author:")
+    st.markdown(""" **[Cicy K Agnes](https://www.linkedin.com/in/cicykagnes/)**""")
+    st.markdown(""" **[Akthar Naveed](https://www.linkedin.com/in/akthar-naveed-v-921039201)**""")
+    st.markdown("""**[Source code](https://github.com/cicykagnes/exoplanet/blob/main/exo_frnt.py)**""")
+
+    st.write("Created on 09/05/2021")
+    st.write("Last updated: **09/05/2021**")
